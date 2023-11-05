@@ -1,0 +1,455 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddxm4fkxejt35"]
+
+[ext_resource type="Script" path="res://gui/settings.gd" id="1_jshut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_857bg"]
+bg_color = Color(0.32549, 0.32549, 0.32549, 1)
+border_color = Color(0.32549, 0.32549, 0.32549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 65.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spgnk"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+border_width_top = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra6tr"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 0.745098)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48iaq"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy4y0"]
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.545098)
+border_width_top = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jj3qb"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tul8s"]
+bg_color = Color(0.32549, 0.32549, 0.32549, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fg7it"]
+content_margin_left = 15.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_vq6iu"]
+font_size = 10
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jshut")
+
+[node name="Window" type="Window" parent="."]
+transparent_bg = true
+title = "Settings"
+initial_position = 2
+size = Vector2i(500, 540)
+unresizable = true
+min_size = Vector2i(500, 540)
+theme_override_colors/title_color = Color(1, 1, 1, 1)
+theme_override_colors/title_outline_modulate = Color(0, 0, 0, 1)
+theme_override_constants/title_outline_size = 3
+theme_override_constants/title_height = 65
+theme_override_constants/close_v_offset = 40
+theme_override_font_sizes/title_font_size = 32
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_857bg")
+theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_857bg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TabContainer" type="TabContainer" parent="Window/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_spgnk")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_ra6tr")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_48iaq")
+theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_48iaq")
+theme_override_styles/tab_focus = SubResource("StyleBoxFlat_dy4y0")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jj3qb")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_tul8s")
+
+[node name="General" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="FPSCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Show FPS"
+
+[node name="ShowSysInfoCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Show system info"
+
+[node name="ShowConfigCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Show config settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/TabContainer/General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/TabContainer/General/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Indirect lighting"
+
+[node name="ILOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/General/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "Lightmap"
+popup/item_1/id = 1
+popup/item_2/text = "SDFGI"
+popup/item_2/id = 2
+
+[node name="VolumetricFogCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Volumetric fog"
+
+[node name="SSAOCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Screen Space Ambient Occlusion"
+
+[node name="SSILCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Screen-Space Indirect Lighting"
+
+[node name="GlowCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Glow"
+
+[node name="Graphics" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Window/VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+columns = 2
+
+[node name="Label5" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current screen"
+
+[node name="ScreenOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Display mode"
+
+[node name="DisplayOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Exclusive"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
+[node name="Label3" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "V-sync"
+
+[node name="VSyncOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "Enabled"
+popup/item_0/id = 0
+popup/item_1/text = "Disabled"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+popup/item_3/text = "Mailbox"
+popup/item_3/id = 3
+
+[node name="Label4" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scale"
+
+[node name="ScaleOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Bilinear"
+popup/item_0/id = 0
+popup/item_1/text = "FSR 1.0"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 2.2"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fg7it")
+text = "Quality mode"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer"]
+layout_mode = 2
+
+[node name="ScaleQualityOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 1
+selected = 0
+popup/item_0/text = "Quality"
+popup/item_0/id = 0
+
+[node name="ScaleSlider" type="HSlider" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.25
+max_value = 2.0
+step = 0.05
+value = 1.0
+tick_count = 10
+
+[node name="ScaleLabel" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/GridContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "0.22"
+label_settings = SubResource("LabelSettings_vq6iu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AAContainer" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer/Graphics"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer"]
+layout_mode = 2
+text = "Anti Aliasing:"
+
+[node name="MarginContainer" type="MarginContainer" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="FSR2AACheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Use FSR2.2 for AA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "MSAA"
+
+[node name="MSAAOption" type="OptionButton" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "None"
+popup/item_0/id = 0
+popup/item_1/text = "2X"
+popup/item_1/id = 1
+popup/item_2/text = "4X"
+popup/item_2/id = 2
+popup/item_3/text = "8X"
+popup/item_3/id = 3
+
+[node name="ScreenSpaceAACheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Screen space AA"
+
+[node name="UseTAACheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Use TAA"
+
+[node name="DebandingCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Use debanding"
+
+[node name="About" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Window/VBoxContainer/TabContainer/About"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Window/VBoxContainer/TabContainer/About/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center][font size=23]Garage 42[/font]
+[font size=12]1.0.0[/font]
+A demo for Godot 4.2
+
+[font size=14]Created by[/font]
+[font size=18]IcterusGames[/font]
+
+[font size=14]Mustang GT Fastback model by:[/font]
+[font size=18]Adam T. Ryder[/font]
+[font size=14][url]https://www.blendswap.com/blend/16609[/url][/font]
+
+[font size=14]Misc tools models by:[/font]
+[font size=18]daren[/font]
+[font size=14][url]https://blendswap.com/blend/2878[/url][/font]
+[font size=18]ivarvanleeuwen[/font]
+[font size=14][url]https://blendswap.com/blend/29136[/url][/font]
+[font size=14][url]https://blendswap.com/blend/29135[/url][/font]
+
+[font size=14]Garage model and extras by:[/font]
+IcterusGames
+
+[font size=14]Textures from:[/font]
+[font size=14][url]https://polyhaven.com[/url][/font]
+
+[/center]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ExitButton" type="Button" parent="Window/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Exit"
+
+[node name="Control" type="Control" parent="Window/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="Window/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Close"
+
+[node name="Sound" type="GridContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = -0.5
+offset_right = 119.0
+offset_bottom = 55.5
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Sound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Sound"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="Label2" type="Label" parent="Sound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FX volume"
+
+[node name="FXVolumeSlider" type="HSlider" parent="Sound"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[connection signal="close_requested" from="Window" to="." method="_on_close_button_pressed"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/FPSCheck" to="." method="_on_fps_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/ShowSysInfoCheck" to="." method="_on_show_sys_info_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/ShowConfigCheck" to="." method="_on_show_config_check_toggled"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/General/HBoxContainer/ILOption" to="." method="_on_il_option_item_selected"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/VolumetricFogCheck" to="." method="_on_volumetric_fog_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/SSAOCheck" to="." method="_on_ssao_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/SSILCheck" to="." method="_on_ssil_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/GlowCheck" to="." method="_on_glow_check_toggled"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/ScreenOption" to="." method="_on_screen_option_item_selected"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/DisplayOption" to="." method="_on_display_option_item_selected"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/VSyncOption" to="." method="_on_v_sync_option_item_selected"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/ScaleOption" to="." method="_on_scale_option_item_selected"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/HBoxContainer/ScaleQualityOption" to="." method="_on_scale_quality_option_item_selected"]
+[connection signal="value_changed" from="Window/VBoxContainer/TabContainer/Graphics/GridContainer/HBoxContainer/ScaleSlider" to="." method="_on_scale_slider_value_changed"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/FSR2AACheck" to="." method="_on_fsr_2aa_check_toggled"]
+[connection signal="item_selected" from="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/HBoxContainer/MSAAOption" to="." method="_on_msaa_option_item_selected"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/ScreenSpaceAACheck" to="." method="_on_screen_space_aa_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/UseTAACheck" to="." method="_on_use_taa_check_toggled"]
+[connection signal="toggled" from="Window/VBoxContainer/TabContainer/Graphics/AAContainer/MarginContainer/VBoxContainer/DebandingCheck" to="." method="_on_debanding_check_toggled"]
+[connection signal="meta_clicked" from="Window/VBoxContainer/TabContainer/About/ScrollContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="Window/VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Window/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

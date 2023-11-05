@@ -1,0 +1,290 @@
+[gd_scene load_steps=31 format=3 uid="uid://bmnl8op1jryvg"]
+
+[ext_resource type="PackedScene" uid="uid://bmawwxwdleptq" path="res://assets/ford_1968_mustang_gt_fastback.tscn" id="1_4gsv5"]
+[ext_resource type="Script" path="res://scenes/showroom.gd" id="1_vfo57"]
+[ext_resource type="PackedScene" uid="uid://cfpw12aplsy5k" path="res://assets/garage.tscn" id="3_mf3sf"]
+[ext_resource type="LightmapGIData" uid="uid://b5qgu5wdl5ji7" path="res://scenes/showroom.lmbake" id="4_f528f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_63yby"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_bex7m"]
+sky_material = SubResource("ProceduralSkyMaterial_63yby")
+
+[sub_resource type="Environment" id="Environment_ykkwc"]
+background_mode = 2
+sky = SubResource("Sky_bex7m")
+tonemap_mode = 3
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 4.0
+ssao_light_affect = 1.0
+ssao_ao_channel_affect = 1.0
+sdfgi_read_sky_light = false
+sdfgi_min_cell_size = 0.0292969
+sdfgi_cascade0_distance = 1.875
+sdfgi_max_distance = 30.0
+sdfgi_y_scale = 0
+sdfgi_energy = 2.0
+sdfgi_probe_bias = 0.1
+glow_enabled = true
+glow_bloom = 0.1
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_h5e44"]
+size = Vector3(7, 1, 10)
+
+[sub_resource type="Gradient" id="Gradient_rf3mi"]
+colors = PackedColorArray(0.0313726, 0, 0.0117647, 1, 0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7t5a7"]
+noise_type = 5
+fractal_lacunarity = 4.465
+fractal_gain = 1.48
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8rvd7"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_rf3mi")
+noise = SubResource("FastNoiseLite_7t5a7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dmaxb"]
+noise_type = 5
+frequency = 0.0835
+fractal_lacunarity = 4.195
+fractal_gain = 1.265
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xh5qc"]
+width = 2048
+height = 2048
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_dmaxb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5p5n"]
+albedo_texture = SubResource("NoiseTexture2D_8rvd7")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_xh5qc")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_k2047"]
+size = Vector3(0.2, 3, 10)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jyg32"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ms25e"]
+noise = SubResource("FastNoiseLite_jyg32")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jufbq"]
+albedo_texture = SubResource("NoiseTexture2D_ms25e")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_r2att"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_7nh1m"]
+density = 0.4
+edge_fade = 1.0
+
+[sub_resource type="Gradient" id="Gradient_mc0bc"]
+offsets = PackedFloat32Array(0, 0.2, 0.5, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b8tcc"]
+gradient = SubResource("Gradient_mc0bc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhsgm"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(4, 1, 5)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 0.01
+initial_velocity_max = 0.02
+gravity = Vector3(0, -0.04, 0)
+scale_min = 0.1
+scale_max = 0.15
+color_ramp = SubResource("GradientTexture1D_b8tcc")
+turbulence_enabled = true
+turbulence_noise_strength = 0.2
+turbulence_noise_scale = 1.0
+turbulence_noise_speed_random = 0.01
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.01
+
+[sub_resource type="Gradient" id="Gradient_rx6k1"]
+offsets = PackedFloat32Array(0, 0.638298, 1)
+colors = PackedColorArray(0.537011, 0.537011, 0.537011, 1, 0.629675, 0.629675, 0.629675, 0.879433, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80734"]
+gradient = SubResource("Gradient_rx6k1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rjbu"]
+transparency = 1
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_80734")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+distance_fade_mode = 1
+distance_fade_min_distance = 0.5
+distance_fade_max_distance = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_auk4p"]
+material = SubResource("StandardMaterial3D_0rjbu")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Animation" id="Animation_y2cvm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2j61s"]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3h82"]
+_data = {
+"RESET": SubResource("Animation_y2cvm"),
+"show": SubResource("Animation_2j61s")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_vfo57")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.549573, -0.24322, -0.799258, -0.818573, 0.348065, 0.456935, 0.167058, 0.90537, -0.390381, 0, 0, 0)
+light_energy = 3.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ykkwc")
+
+[node name="Ford_1968_Mustang_GT_Fastback" parent="." instance=ExtResource("1_4gsv5")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+mesh = SubResource("BoxMesh_h5e44")
+surface_material_override/0 = SubResource("StandardMaterial3D_k5p5n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05328, 1.9904, 0)
+mesh = SubResource("BoxMesh_k2047")
+surface_material_override/0 = SubResource("StandardMaterial3D_jufbq")
+
+[node name="CamAxisY" type="Node3D" parent="."]
+transform = Transform3D(0.777146, 0, 0.62932, 0, 1, 0, -0.62932, 0, 0.777146, 0, 0.694, 0)
+
+[node name="CamAxisX" type="Node3D" parent="CamAxisY"]
+transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamAxisY/CamAxisX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.224)
+current = true
+
+[node name="Node3D" type="Node3D" parent="."]
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(0.665799, -0.211226, 0.715608, 0.00245708, 0.959707, 0.280991, -0.746127, -0.185325, 0.639491, 2.02606, 1.34925, 2.31398)
+far = 250.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25643, -0.627208)
+visible = false
+mesh = SubResource("BoxMesh_r2att")
+
+[node name="garage" parent="." instance=ExtResource("3_mf3sf")]
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24412, 0.895583, 0.720203)
+size = Vector3(3.80391, 2.52802, 4.86781)
+material = SubResource("FogMaterial_7nh1m")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22591, 0)
+amount = 1280
+lifetime = 7.0
+preprocess = 10.0
+speed_scale = 0.5
+fixed_fps = 60
+visibility_aabb = AABB(-4.79563, -2.44369, -5.71245, 9.58453, 3.5412, 11.4696)
+process_material = SubResource("ParticleProcessMaterial_qhsgm")
+draw_pass_1 = SubResource("QuadMesh_auk4p")
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 3
+bounces = 5
+interior = true
+light_data = ExtResource("4_f528f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_g3h82")
+}
+autoplay = "show"

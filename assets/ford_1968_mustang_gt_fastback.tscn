@@ -1,0 +1,515 @@
+[gd_scene load_steps=39 format=3 uid="uid://bmawwxwdleptq"]
+
+[ext_resource type="PackedScene" uid="uid://bayr0hwgq8ksq" path="res://assets/Ford_1968_Mustang_GT_Fastback.glb" id="1_8ssxb"]
+[ext_resource type="Material" uid="uid://ck7abn18pjvss" path="res://materials/paint.material" id="2_2nsh5"]
+[ext_resource type="Material" uid="uid://t4aoultdot1p" path="res://materials/chrome.material" id="3_id6lu"]
+[ext_resource type="Material" uid="uid://bgw63572ii78j" path="res://materials/stop_lights.material" id="4_822ao"]
+[ext_resource type="Material" uid="uid://cib3uckcd7lil" path="res://materials/plastic_gray_dark.material" id="4_aul8h"]
+[ext_resource type="Material" uid="uid://dbjj0bmwab42d" path="res://materials/glass.material" id="4_gaqe7"]
+[ext_resource type="Material" uid="uid://cyhk7o2mqh8s7" path="res://materials/dark_dashboard.material" id="4_vkort"]
+[ext_resource type="Material" uid="uid://c8i4odsqpsil5" path="res://materials/white.material" id="5_xhf42"]
+[ext_resource type="Material" uid="uid://b0axoghgwb102" path="res://materials/red_needles.material" id="6_kxcuo"]
+[ext_resource type="Material" uid="uid://dkosq0g6g65aj" path="res://materials/black.material" id="7_jiocg"]
+[ext_resource type="Material" uid="uid://cn0ta12p8fwu3" path="res://materials/dark_gray.material" id="8_0d2fy"]
+[ext_resource type="Material" uid="uid://brd07i8qxrutr" path="res://materials/wood.material" id="10_157a0"]
+[ext_resource type="Material" uid="uid://bkpigm2a2xdc5" path="res://materials/leather.material" id="11_20kc7"]
+[ext_resource type="Material" uid="uid://lu64k31ohmei" path="res://materials/carpet.material" id="12_umpr2"]
+[ext_resource type="Material" uid="uid://djmnq525bg0ia" path="res://materials/ambar.material" id="13_rhxt3"]
+[ext_resource type="Material" uid="uid://ji885fpwm388" path="res://materials/leather_rough.material" id="14_okw63"]
+[ext_resource type="Material" uid="uid://b0bn32tlp21ba" path="res://materials/reflector_back.material" id="15_bwku0"]
+[ext_resource type="Material" uid="uid://l6kg6p6gmbi4" path="res://materials/reflector_glass.material" id="16_pibxr"]
+[ext_resource type="Material" uid="uid://bxxm0gp4i45qo" path="res://materials/tire.material" id="17_8v85i"]
+[ext_resource type="Material" uid="uid://dcaq0lxmuf2ug" path="res://materials/black_glossy.material" id="18_iuixo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j46pd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6m7f"]
+albedo_color = Color(0.313726, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w50o3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_crs0t"]
+seamless = true
+noise = SubResource("FastNoiseLite_w50o3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3buqy"]
+frequency = 0.0585
+fractal_gain = 1.01
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dxc6e"]
+width = 256
+height = 256
+as_normal_map = true
+bump_strength = 1.0
+noise = SubResource("FastNoiseLite_3buqy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_481hq"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.803922)
+albedo_texture = SubResource("NoiseTexture2D_crs0t")
+metallic = 0.8
+roughness = 0.3
+normal_enabled = true
+normal_scale = 0.1
+normal_texture = SubResource("NoiseTexture2D_dxc6e")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a363u"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dspfg"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_wn4cq"]
+colors = PackedColorArray(0.641934, 0.641934, 0.641934, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wyttf"]
+noise_type = 2
+frequency = 0.0195
+fractal_lacunarity = 1.94
+fractal_gain = 0.665
+cellular_return_type = 6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ojypc"]
+width = 128
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_wn4cq")
+noise = SubResource("FastNoiseLite_wyttf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8i4l"]
+albedo_color = Color(0.631373, 0.25098, 0.105882, 1)
+albedo_texture = SubResource("NoiseTexture2D_ojypc")
+metallic = 0.3
+metallic_specular = 0.14
+roughness = 0.37
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jojo7"]
+albedo_color = Color(0.270588, 0.270588, 0.270588, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kh5xx"]
+albedo_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nauif"]
+albedo_color = Color(1, 0.490196, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uis6s"]
+metallic = 0.52
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku58n"]
+metallic = 0.2
+roughness = 0.2
+
+[node name="Ford_1968_Mustang_GT_Fastback" instance=ExtResource("1_8ssxb")]
+
+[node name="Body" parent="." index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.0213299, 0)
+layers = 2
+surface_material_override/0 = ExtResource("2_2nsh5")
+surface_material_override/1 = SubResource("StandardMaterial3D_j46pd")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = SubResource("StandardMaterial3D_g6m7f")
+surface_material_override/4 = SubResource("StandardMaterial3D_481hq")
+surface_material_override/5 = ExtResource("4_822ao")
+surface_material_override/6 = ExtResource("3_id6lu")
+surface_material_override/7 = ExtResource("3_id6lu")
+surface_material_override/8 = ExtResource("4_aul8h")
+surface_material_override/9 = ExtResource("8_0d2fy")
+surface_material_override/10 = SubResource("StandardMaterial3D_a363u")
+
+[node name="Bottom" parent="Body" index="0"]
+layers = 2
+surface_material_override/0 = SubResource("StandardMaterial3D_dspfg")
+
+[node name="Dashboard" parent="Body" index="1"]
+layers = 2
+surface_material_override/0 = ExtResource("4_vkort")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("4_gaqe7")
+surface_material_override/3 = SubResource("StandardMaterial3D_e8i4l")
+surface_material_override/4 = SubResource("StandardMaterial3D_jojo7")
+surface_material_override/5 = ExtResource("3_id6lu")
+
+[node name="Clock_HourHand" parent="Body/Dashboard" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="Clock_MinuteHand" parent="Body/Dashboard" index="1"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="Clock_SecondHand" parent="Body/Dashboard" index="2"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="FuelGaugeNeedle" parent="Body/Dashboard" index="3"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="GaugeMounts" parent="Body/Dashboard" index="4"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+
+[node name="GloveBox" parent="Body/Dashboard" index="5"]
+layers = 2
+surface_material_override/0 = ExtResource("4_vkort")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("3_id6lu")
+
+[node name="Radio" parent="Body/Dashboard/GloveBox" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = SubResource("StandardMaterial3D_kh5xx")
+surface_material_override/2 = ExtResource("7_jiocg")
+surface_material_override/3 = ExtResource("5_xhf42")
+surface_material_override/4 = ExtResource("4_gaqe7")
+
+[node name="RadioNeedle" parent="Body/Dashboard/GloveBox/Radio" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="HoodRelease" parent="Body/Dashboard" index="6"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+
+[node name="OilGaugeNeedle" parent="Body/Dashboard" index="7"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="Pedal_Brake" parent="Body/Dashboard" index="8"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+
+[node name="Pedal_Clutch" parent="Body/Dashboard" index="9"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+
+[node name="Pedal_Gas" parent="Body/Dashboard" index="10"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+
+[node name="Speedometer" parent="Body/Dashboard" index="11"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("7_jiocg")
+surface_material_override/2 = ExtResource("4_gaqe7")
+surface_material_override/3 = ExtResource("8_0d2fy")
+surface_material_override/4 = ExtResource("3_id6lu")
+
+[node name="OdeometerWheel" parent="Body/Dashboard/Speedometer" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_001" parent="Body/Dashboard/Speedometer" index="1"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_002" parent="Body/Dashboard/Speedometer" index="2"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_003" parent="Body/Dashboard/Speedometer" index="3"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_004" parent="Body/Dashboard/Speedometer" index="4"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_005" parent="Body/Dashboard/Speedometer" index="5"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_006" parent="Body/Dashboard/Speedometer" index="6"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_007" parent="Body/Dashboard/Speedometer" index="7"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_008" parent="Body/Dashboard/Speedometer" index="8"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="OdeometerWheel_009" parent="Body/Dashboard/Speedometer" index="9"]
+layers = 2
+surface_material_override/0 = ExtResource("5_xhf42")
+
+[node name="SpeedometerNeedle" parent="Body/Dashboard/Speedometer" index="10"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="SteeringColumn" parent="Body/Dashboard" index="12"]
+layers = 2
+surface_material_override/0 = ExtResource("4_vkort")
+
+[node name="SteeringWheelAdjuster" parent="Body/Dashboard/SteeringColumn" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("4_vkort")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = ExtResource("3_id6lu")
+
+[node name="SteeringWheel" parent="Body/Dashboard/SteeringColumn/SteeringWheelAdjuster" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("10_157a0")
+
+[node name="Tachometer" parent="Body/Dashboard" index="13"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("7_jiocg")
+surface_material_override/2 = ExtResource("4_gaqe7")
+surface_material_override/3 = ExtResource("8_0d2fy")
+surface_material_override/4 = ExtResource("3_id6lu")
+
+[node name="TachometerNeedle" parent="Body/Dashboard/Tachometer" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("6_kxcuo")
+
+[node name="DriverSeat" parent="Body" index="2"]
+layers = 2
+surface_material_override/0 = ExtResource("11_20kc7")
+
+[node name="DriverSeatBack" parent="Body" index="3"]
+surface_material_override/0 = ExtResource("14_okw63")
+
+[node name="DriverSeatBack_001" parent="Body" index="4"]
+surface_material_override/0 = ExtResource("14_okw63")
+
+[node name="Floor" parent="Body" index="5"]
+layers = 2
+surface_material_override/0 = ExtResource("12_umpr2")
+
+[node name="FrontBumper" parent="Body" index="6"]
+layers = 2
+surface_material_override/0 = ExtResource("2_2nsh5")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = SubResource("StandardMaterial3D_nauif")
+surface_material_override/3 = ExtResource("13_rhxt3")
+
+[node name="LicensePlate" parent="Body/FrontBumper" index="0"]
+visible = false
+layers = 2
+surface_material_override/0 = SubResource("StandardMaterial3D_uis6s")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = ExtResource("3_id6lu")
+
+[node name="FrontReflector" parent="Body" index="7"]
+layers = 2
+surface_material_override/0 = ExtResource("15_bwku0")
+surface_material_override/1 = ExtResource("16_pibxr")
+
+[node name="Hood" parent="Body" index="8"]
+layers = 2
+surface_material_override/0 = ExtResource("2_2nsh5")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("7_jiocg")
+
+[node name="InnerDoorPanel" parent="Body" index="9"]
+layers = 2
+surface_material_override/0 = ExtResource("11_20kc7")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("7_jiocg")
+surface_material_override/3 = ExtResource("4_vkort")
+surface_material_override/4 = ExtResource("7_jiocg")
+
+[node name="InnerSidePanel" parent="Body" index="10"]
+layers = 2
+surface_material_override/0 = ExtResource("8_0d2fy")
+
+[node name="LicensePlate_001" parent="Body" index="11"]
+visible = false
+layers = 2
+
+[node name="Mirror_RearView_Bracket" parent="Body" index="12"]
+layers = 2
+surface_material_override/0 = ExtResource("8_0d2fy")
+surface_material_override/1 = ExtResource("7_jiocg")
+
+[node name="Mirror_RearView_Arm" parent="Body/Mirror_RearView_Bracket" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("8_0d2fy")
+
+[node name="Mirror_RearView" parent="Body/Mirror_RearView_Bracket/Mirror_RearView_Arm" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("8_0d2fy")
+surface_material_override/1 = ExtResource("3_id6lu")
+surface_material_override/2 = ExtResource("3_id6lu")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Body/Mirror_RearView_Bracket/Mirror_RearView_Arm/Mirror_RearView" index="0"]
+transform = Transform3D(1, -1.49012e-07, -3.72529e-09, 1.78814e-07, 1, -2.98023e-07, -3.72529e-09, 3.12924e-07, 1, -0.0893804, -0.127044, 0.0549452)
+layers = 2
+max_distance = 10.0
+size = Vector3(1, 0.5, 0.5)
+box_projection = true
+interior = true
+
+[node name="MirrorStand_DriverSide" parent="Body" index="13"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+
+[node name="Mirror_DriverSide" parent="Body/MirrorStand_DriverSide" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("3_id6lu")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Body/MirrorStand_DriverSide/Mirror_DriverSide" index="0"]
+transform = Transform3D(1, 6.65896e-07, 4.02331e-07, -6.70552e-07, 1, -3.69549e-06, -4.17233e-07, 3.70294e-06, 1, 0, 2.38419e-07, -0.0813866)
+layers = 2
+max_distance = 30.0
+size = Vector3(0.5, 0.5, 0.5)
+box_projection = true
+interior = true
+
+[node name="MirrorStand_DriverSide_001" parent="Body" index="14"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+
+[node name="Mirror_DriverSide_001" parent="Body/MirrorStand_DriverSide_001" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("3_id6lu")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="Body/MirrorStand_DriverSide_001/Mirror_DriverSide_001" index="0"]
+transform = Transform3D(1, 3.72529e-09, -5.96046e-08, 3.72529e-09, 1, 1.49012e-08, 0, 0, 1, -1.19209e-07, -4.76837e-07, -0.0748177)
+layers = 2
+max_distance = 25.0
+size = Vector3(0.5, 0.5, 0.5)
+box_projection = true
+interior = true
+
+[node name="PassengerSeat" parent="Body" index="15"]
+layers = 2
+surface_material_override/0 = ExtResource("11_20kc7")
+
+[node name="RearBumper" parent="Body" index="16"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+
+[node name="RearReflector" parent="Body" index="17"]
+layers = 2
+surface_material_override/0 = ExtResource("15_bwku0")
+surface_material_override/1 = ExtResource("16_pibxr")
+
+[node name="RearSeat" parent="Body" index="18"]
+layers = 2
+surface_material_override/0 = ExtResource("11_20kc7")
+
+[node name="RearWindow" parent="Body" index="19"]
+layers = 2
+surface_material_override/0 = ExtResource("4_gaqe7")
+
+[node name="Rim" parent="Body" index="20"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = ExtResource("3_id6lu")
+
+[node name="Tire" parent="Body/Rim" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("17_8v85i")
+
+[node name="Rim_001" parent="Body" index="21"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = ExtResource("3_id6lu")
+
+[node name="Tire_001" parent="Body/Rim_001" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("17_8v85i")
+
+[node name="Rim_002" parent="Body" index="22"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = ExtResource("3_id6lu")
+
+[node name="Tire_002" parent="Body/Rim_002" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("17_8v85i")
+
+[node name="Rim_003" parent="Body" index="23"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = ExtResource("3_id6lu")
+surface_material_override/3 = ExtResource("3_id6lu")
+
+[node name="Tire_003" parent="Body/Rim_003" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("17_8v85i")
+
+[node name="Shifter" parent="Body" index="24"]
+layers = 2
+surface_material_override/0 = ExtResource("3_id6lu")
+surface_material_override/1 = ExtResource("8_0d2fy")
+surface_material_override/2 = SubResource("StandardMaterial3D_ku58n")
+
+[node name="SideQuarterWindow" parent="Body" index="25"]
+layers = 2
+surface_material_override/0 = ExtResource("4_gaqe7")
+
+[node name="SideWindows" parent="Body" index="26"]
+visible = false
+surface_material_override/0 = ExtResource("4_gaqe7")
+
+[node name="Trunk" parent="Body" index="27"]
+layers = 2
+surface_material_override/0 = ExtResource("2_2nsh5")
+surface_material_override/1 = ExtResource("3_id6lu")
+
+[node name="Windshield" parent="Body" index="28"]
+layers = 2
+surface_material_override/0 = ExtResource("4_gaqe7")
+
+[node name="WindshieldWiper" parent="Body" index="29"]
+layers = 2
+surface_material_override/0 = ExtResource("18_iuixo")
+
+[node name="WiperBlade" parent="Body/WindshieldWiper" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("7_jiocg")
+surface_material_override/1 = ExtResource("18_iuixo")
+
+[node name="WindshieldWiper_003" parent="Body" index="30"]
+layers = 2
+surface_material_override/0 = ExtResource("18_iuixo")
+
+[node name="WiperBlade_002" parent="Body/WindshieldWiper_003" index="0"]
+layers = 2
+surface_material_override/0 = ExtResource("7_jiocg")
+surface_material_override/1 = ExtResource("18_iuixo")
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723639, 0.589067, 2.00419)
+layers = 2
+max_distance = 30.0
+size = Vector3(0.15, 0.15, 0.2927)
+interior = true
+
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.720203, 0.589067, 2.00419)
+layers = 2
+max_distance = 30.0
+size = Vector3(0.15, 0.15, 0.2927)
+interior = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925146, 0)
+max_distance = 50.0
+size = Vector3(5, 2, 5)
+origin_offset = Vector3(0, 0.53, 0)
+box_projection = true
+interior = true

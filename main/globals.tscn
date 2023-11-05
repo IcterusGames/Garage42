@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6peexxd8r1h0"]
+
+[ext_resource type="Script" path="res://main/globals.gd" id="1_6a4ov"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bytmq"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu2s0"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqqfx"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ju7m"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aijfo"]
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Globals" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6a4ov")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 360.0
+offset_bottom = 90.0
+
+[node name="FPSLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+label_settings = SubResource("LabelSettings_bytmq")
+
+[node name="SysInfoLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+label_settings = SubResource("LabelSettings_uu2s0")
+
+[node name="ConfigLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+label_settings = SubResource("LabelSettings_xqqfx")
+
+[node name="Gui" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SettingsButton" type="Button" parent="Gui"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_top = 32.0
+offset_right = -34.0
+offset_bottom = 80.0
+grow_horizontal = 0
+text = "Settings"
+
+[node name="DebugViewLabel" type="Label" parent="Gui"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_6ju7m")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Gui"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -88.0
+offset_right = -36.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "T: Change debug draw modes
+P: Start/Stop autorotation
+Arrows: rotate camera"
+label_settings = SubResource("LabelSettings_aijfo")
+vertical_alignment = 2
+
+[connection signal="pressed" from="Gui/SettingsButton" to="." method="_on_settings_button_pressed"]

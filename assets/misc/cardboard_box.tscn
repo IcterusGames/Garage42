@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://div6oc5e83mwp"]
+
+[ext_resource type="PackedScene" uid="uid://dhb8ij27bhrk8" path="res://assets/misc/cardboard_box.glb" id="1_1ro5h"]
+[ext_resource type="Material" uid="uid://b5rck7dgdb1cd" path="res://materials/cardboard.material" id="2_udr33"]
+
+[node name="cardboard_box" instance=ExtResource("1_1ro5h")]
+
+[node name="CardboardBox" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_udr33")

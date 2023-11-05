@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Garage42"
+run/main_scene="res://gui/loading.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://main/globals.tscn"
+
+[display]
+
+window/size/mode=4
+
+[rendering]
+
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=5
+reflections/reflection_atlas/reflection_size=512
+textures/default_filters/anisotropic_filtering_level=4
+environment/ssao/quality=4
+environment/ssao/half_size=false
+environment/ssil/quality=3
+environment/ssil/half_size=false
+environment/screen_space_reflection/roughness_quality=3
+global_illumination/sdfgi/probe_ray_count=3

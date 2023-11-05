@@ -1,0 +1,353 @@
+[gd_scene load_steps=48 format=3 uid="uid://cfpw12aplsy5k"]
+
+[ext_resource type="PackedScene" uid="uid://cjl6arjl7yqyr" path="res://assets/garage.glb" id="1_v7neh"]
+[ext_resource type="Texture2D" uid="uid://d3wv3gpfntaox" path="res://assets/textures/brick_4_diff_2k.jpg" id="2_5ohp0"]
+[ext_resource type="Material" uid="uid://dbjj0bmwab42d" path="res://materials/glass.material" id="2_fsng4"]
+[ext_resource type="Texture2D" uid="uid://c08f1wvpu5y75" path="res://assets/textures/wood_planks_dirt_nor_gl_2k.png" id="3_aiibt"]
+[ext_resource type="Texture2D" uid="uid://b674kpxwtgs7w" path="res://assets/textures/brick_4_disp_2k.png" id="3_y1x2m"]
+[ext_resource type="Texture2D" uid="uid://creajcvbion7e" path="res://assets/textures/brick_4_nor_gl_2k.png" id="4_2p1t2"]
+[ext_resource type="Texture2D" uid="uid://bor0tokxhv7aa" path="res://assets/textures/wood_planks_dirt_rough_2k.png" id="4_l6t0f"]
+[ext_resource type="Texture2D" uid="uid://cpjegjn74c5e1" path="res://assets/textures/brick_4_rough_2k.png" id="5_5jpqi"]
+[ext_resource type="Texture2D" uid="uid://11rabtsr4q70" path="res://assets/textures/wood_planks_dirt_diff_2k.jpg" id="6_aih6h"]
+[ext_resource type="Texture2D" uid="uid://omsfr30ixjt4" path="res://assets/textures/white_rough_plaster_diff_2k.png" id="9_1mpvt"]
+[ext_resource type="Texture2D" uid="uid://c6j46dgqaapl1" path="res://assets/textures/wood_cabinet_worn_long_nor_gl_2k.png" id="10_1yn3k"]
+[ext_resource type="Texture2D" uid="uid://dad87umno3cpo" path="res://assets/textures/white_rough_plaster_nor_gl_2k.png" id="10_s7pm7"]
+[ext_resource type="Texture2D" uid="uid://bw0sjpkq8dbg1" path="res://assets/textures/wood_cabinet_worn_long_rough_2k.png" id="11_n6ma3"]
+[ext_resource type="Material" uid="uid://bjtojbh178g2e" path="res://materials/wood_02.material" id="14_sneqd"]
+[ext_resource type="Material" uid="uid://cbv2hsu0dq0b1" path="res://materials/metal_01.material" id="15_a33lk"]
+[ext_resource type="PackedScene" uid="uid://dksluun3p4u6e" path="res://assets/lamp.tscn" id="15_jn6d0"]
+[ext_resource type="Material" uid="uid://t4aoultdot1p" path="res://materials/chrome.material" id="18_6eww5"]
+[ext_resource type="PackedScene" uid="uid://b35vufmo4fbyl" path="res://assets/misc/bench.glb" id="18_l0qj1"]
+[ext_resource type="Texture2D" uid="uid://c5uc3hmn06dam" path="res://assets/textures/wood_cabinet_worn_long_diff_2k.jpg" id="19_olo5a"]
+[ext_resource type="PackedScene" uid="uid://78rev21nfrst" path="res://assets/misc/bottle.glb" id="19_rptcu"]
+[ext_resource type="PackedScene" uid="uid://div6oc5e83mwp" path="res://assets/misc/cardboard_box.tscn" id="20_chhgr"]
+[ext_resource type="Material" uid="uid://cn0ta12p8fwu3" path="res://materials/dark_gray.material" id="21_aln8s"]
+[ext_resource type="PackedScene" uid="uid://vobolqisfmmr" path="res://assets/misc/engine.glb" id="21_asyeh"]
+[ext_resource type="Material" uid="uid://bxxm0gp4i45qo" path="res://materials/tire.material" id="22_nwx5h"]
+[ext_resource type="PackedScene" uid="uid://bsjhajfxd05me" path="res://assets/misc/gear.glb" id="24_x23gl"]
+[ext_resource type="PackedScene" uid="uid://mk05elv5a5mi" path="res://assets/misc/locker.glb" id="25_mki12"]
+[ext_resource type="PackedScene" uid="uid://c3b5y8jwjvoti" path="res://assets/misc/power_cord.glb" id="26_05sbf"]
+[ext_resource type="PackedScene" uid="uid://c7o3bldy4s8et" path="res://assets/misc/socket_wrench.glb" id="27_1a565"]
+[ext_resource type="PackedScene" uid="uid://qki3tpxp4dr5" path="res://assets/misc/store_racks.glb" id="28_ojo28"]
+[ext_resource type="Material" uid="uid://dkosq0g6g65aj" path="res://materials/black.material" id="29_eo4xb"]
+[ext_resource type="Material" uid="uid://doa3hq255s6w6" path="res://materials/wood_03.material" id="30_572ya"]
+[ext_resource type="PackedScene" uid="uid://dkp1rcx4ug6l6" path="res://assets/misc/tools.glb" id="31_u8kql"]
+[ext_resource type="PackedScene" uid="uid://cn6upfody70qv" path="res://assets/misc/tool_shelf.glb" id="32_phot8"]
+[ext_resource type="PackedScene" uid="uid://b06mva4m7wnyr" path="res://assets/misc/vice_grip.glb" id="33_ryv0s"]
+[ext_resource type="PackedScene" uid="uid://bj00abi0bs5gi" path="res://assets/tire.glb" id="34_a6sgd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0y1td"]
+albedo_texture = ExtResource("2_5ohp0")
+metallic = 0.1
+roughness_texture = ExtResource("5_5jpqi")
+normal_enabled = true
+normal_texture = ExtResource("4_2p1t2")
+heightmap_enabled = true
+heightmap_scale = 2.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("3_y1x2m")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obx63"]
+albedo_texture = ExtResource("6_aih6h")
+roughness_texture = ExtResource("4_l6t0f")
+normal_enabled = true
+normal_texture = ExtResource("3_aiibt")
+uv1_scale = Vector3(0.7, 0.7, 0.7)
+uv1_triplanar = true
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmgj8"]
+albedo_texture = ExtResource("19_olo5a")
+roughness_texture = ExtResource("11_n6ma3")
+normal_enabled = true
+normal_texture = ExtResource("10_1yn3k")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qyb1c"]
+albedo_texture = ExtResource("9_1mpvt")
+normal_enabled = true
+normal_texture = ExtResource("10_s7pm7")
+uv1_triplanar = true
+
+[sub_resource type="Gradient" id="Gradient_dyxv3"]
+colors = PackedColorArray(0, 0, 0, 1, 0.196427, 0.231171, 0.325339, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ty6v2"]
+noise_type = 2
+frequency = 0.003
+fractal_type = 0
+fractal_octaves = 1
+fractal_ping_pong_strength = 1.625
+cellular_distance_function = 1
+cellular_jitter = 0.0
+cellular_return_type = 6
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yn81w"]
+width = 32
+height = 1024
+color_ramp = SubResource("Gradient_dyxv3")
+noise = SubResource("FastNoiseLite_ty6v2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgwes"]
+albedo_texture = SubResource("NoiseTexture2D_yn81w")
+uv1_scale = Vector3(30, 30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4tsp"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43sye"]
+albedo_color = Color(0, 0.529412, 0.584314, 1)
+metallic = 0.5
+roughness = 0.52
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osyps"]
+albedo_color = Color(0.443137, 0.737255, 0.988235, 1)
+emission_enabled = true
+emission = Color(0, 0.54902, 0.988235, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hxskk"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+
+[node name="garage" instance=ExtResource("1_v7neh")]
+
+[node name="Room" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0y1td")
+surface_material_override/1 = SubResource("StandardMaterial3D_obx63")
+surface_material_override/2 = SubResource("StandardMaterial3D_xmgj8")
+surface_material_override/3 = SubResource("StandardMaterial3D_qyb1c")
+
+[node name="Window" parent="." index="1"]
+surface_material_override/0 = ExtResource("14_sneqd")
+surface_material_override/1 = ExtResource("2_fsng4")
+
+[node name="Roof" parent="." index="2"]
+surface_material_override/0 = ExtResource("15_a33lk")
+surface_material_override/1 = SubResource("StandardMaterial3D_sgwes")
+
+[node name="Garage42" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_t4tsp")
+
+[node name="lamp" parent="." index="4" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5978, 2.75087, -1.51652)
+
+[node name="lamp2" parent="." index="5" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.751, -1.517)
+
+[node name="lamp3" parent="." index="6" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.598, 2.751, -1.517)
+
+[node name="lamp4" parent="." index="7" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.598, 2.751, 1.517)
+
+[node name="lamp6" parent="." index="8" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.598, 2.751, 1.517)
+
+[node name="lamp5" parent="." index="9" instance=ExtResource("15_jn6d0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.751, 1.517)
+
+[node name="tools" type="Node3D" parent="." index="10"]
+
+[node name="bench" parent="tools" index="0" instance=ExtResource("18_l0qj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39481, 0, -0.719365)
+
+[node name="Bench" parent="tools/bench" index="0"]
+surface_material_override/0 = ExtResource("14_sneqd")
+surface_material_override/1 = ExtResource("30_572ya")
+
+[node name="bottle" parent="tools" index="1" instance=ExtResource("19_rptcu")]
+transform = Transform3D(0.829194, 0, -0.558961, 0, 1, 0, 0.558961, 0, 0.829194, 3.41595, 0.42202, 2.37325)
+
+[node name="bottle2" parent="tools" index="2" instance=ExtResource("19_rptcu")]
+transform = Transform3D(0.846212, 0, 0.532847, 0, 1, 0, -0.532847, 0, 0.846212, 3.5342, 0.42202, 2.52721)
+
+[node name="bottle3" parent="tools" index="3" instance=ExtResource("19_rptcu")]
+transform = Transform3D(-0.296525, 0, 0.955025, 0, 1, 0, -0.955025, 0, -0.296525, 3.58017, 0.42202, 2.78815)
+
+[node name="bottle4" parent="tools" index="4" instance=ExtResource("19_rptcu")]
+transform = Transform3D(0.79148, 0, 0.611196, 0, 1, 0, -0.611196, 0, 0.79148, 3.45143, 0.421053, 4.51745)
+
+[node name="bottle5" parent="tools" index="5" instance=ExtResource("19_rptcu")]
+transform = Transform3D(0.320774, 0, -0.947156, 0, 1, 0, 0.947156, 0, 0.320774, -3.66848, 0.41835, 4.12386)
+
+[node name="bottle6" parent="tools" index="6" instance=ExtResource("19_rptcu")]
+transform = Transform3D(0.73804, 0, -0.674757, 0, 1, 0, 0.674757, 0, 0.73804, -3.48793, 0.41835, 4.54021)
+
+[node name="bottle7" parent="tools" index="7" instance=ExtResource("19_rptcu")]
+transform = Transform3D(-0.759944, 0, -0.649989, 0, 1, 0, 0.649989, 0, -0.759944, -3.54131, 0.41835, 2.4066)
+
+[node name="bottle8" parent="tools" index="8" instance=ExtResource("19_rptcu")]
+transform = Transform3D(-0.759944, 0, -0.649989, 0, 1, 0, 0.649989, 0, -0.759944, -3.53646, 1.62111, 3.70169)
+
+[node name="cardboard_box" parent="tools" index="9" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.131409, 0, 0.991328, 0, 1, 0, -0.991328, 0, 0.131409, 3.51105, 0.950536, 2.99252)
+
+[node name="cardboard_box2" parent="tools" index="10" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.718102, 0, 0.695938, 0, 1, 0, -0.695938, 0, 0.718102, 3.51105, 0.950536, 2.55756)
+
+[node name="cardboard_box3" parent="tools" index="11" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.339395, 0, 0.940644, 0, 1, 0, -0.940644, 0, -0.339395, 3.51105, 0.950536, 4.18318)
+
+[node name="cardboard_box4" parent="tools" index="12" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.374234, 0, 0.927334, 0, 1, 0, -0.927334, 0, 0.374234, 3.51105, 1.35978, 3.8508)
+
+[node name="cardboard_box5" parent="tools" index="13" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.172118, 0.985076, -4.09782e-08, 0, -4.37114e-08, -1, -0.985076, -0.172118, 0, 3.51105, 1.35978, 3.1325)
+
+[node name="cardboard_box6" parent="tools" index="14" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.71685, 0, 0.697228, 0, 1, 0, -0.697228, 0, 0.71685, 3.51105, 1.76851, 3.72762)
+
+[node name="cardboard_box7" parent="tools" index="15" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.977386, 0, -0.211461, 0, 1, 0, 0.211461, 0, 0.977386, 3.51105, 1.76851, 4.36692)
+
+[node name="cardboard_box8" parent="tools" index="16" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.977386, 0, -0.211461, 0, 1, 0, 0.211461, 0, 0.977386, 3.51105, 2.15694, 3.13265)
+
+[node name="cardboard_box9" parent="tools" index="17" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.712797, 0, 0.701371, 0, 1, 0, -0.701371, 0, -0.712797, -3.57036, 0.948804, 4.29061)
+
+[node name="cardboard_box10" parent="tools" index="18" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.998637, 0, -0.0521951, 0, 1, 0, 0.0521951, 0, -0.998637, -3.57036, 0.948804, 3.83714)
+
+[node name="cardboard_box11" parent="tools" index="19" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.353914, 0, 0.935278, 0, 1, 0, -0.935278, 0, -0.353914, -3.57036, 0.948804, 2.66773)
+
+[node name="cardboard_box12" parent="tools" index="20" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.143218, 0, 0.989692, 0, 1, 0, -0.989692, 0, 0.143218, -3.58221, 1.35016, 3.04686)
+
+[node name="cardboard_box13" parent="tools" index="21" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.132463, 0.991188, -4.28408e-08, 0, -4.37114e-08, -1, -0.991188, -0.132463, 0, -3.58221, 1.35016, 3.72229)
+
+[node name="cardboard_box14" parent="tools" index="22" instance=ExtResource("20_chhgr")]
+transform = Transform3D(0.661939, 0, -0.749558, 0, 1, 0, 0.749558, 0, 0.661939, -3.58972, 1.74545, 3.12872)
+
+[node name="cardboard_box15" parent="tools" index="23" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.217123, 0, -0.976144, 0, 1, 0, 0.976144, 0, -0.217123, -3.58972, 1.74545, 2.46665)
+
+[node name="cardboard_box16" parent="tools" index="24" instance=ExtResource("20_chhgr")]
+transform = Transform3D(-0.217123, 0, -0.976144, 0, 1, 0, 0.976144, 0, -0.217123, -3.58972, 2.15291, 3.74599)
+
+[node name="engine" parent="tools" index="25" instance=ExtResource("21_asyeh")]
+transform = Transform3D(-0.129055, 0, 0.991637, 0, 1, 0, -0.991637, 0, -0.129055, 3.15863, 0.251799, 0.535997)
+
+[node name="Engine" parent="tools/engine" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_43sye")
+surface_material_override/1 = ExtResource("21_aln8s")
+surface_material_override/2 = ExtResource("18_6eww5")
+
+[node name="gear" parent="tools" index="26" instance=ExtResource("24_x23gl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57706, 0.762847, -1.52516)
+
+[node name="Gear" parent="tools/gear" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+
+[node name="locker" parent="tools" index="27" instance=ExtResource("25_mki12")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77456, 0, -4.11493)
+
+[node name="locker2" parent="tools" index="28" instance=ExtResource("25_mki12")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.02757, 0, -4.77983)
+
+[node name="power_cord" parent="tools" index="29" instance=ExtResource("26_05sbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52677, 0.435422, 3.59351)
+
+[node name="power_cord2" parent="tools" index="30" instance=ExtResource("26_05sbf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54434, 0.82664, 3.27458)
+
+[node name="socket_wrench" parent="tools" index="31" instance=ExtResource("27_1a565")]
+transform = Transform3D(0.698603, 0, -0.71551, 0, 1, 0, 0.71551, 0, 0.698603, 3.51544, 0.739844, -0.538218)
+
+[node name="SocketWrench" parent="tools/socket_wrench" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+
+[node name="store_racks" parent="tools" index="32" instance=ExtResource("28_ojo28")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.71966, 0, 3.744)
+
+[node name="StoreRacks" parent="tools/store_racks" index="0"]
+surface_material_override/0 = ExtResource("29_eo4xb")
+surface_material_override/1 = ExtResource("15_a33lk")
+surface_material_override/2 = ExtResource("30_572ya")
+
+[node name="store_racks2" parent="tools" index="33" instance=ExtResource("28_ojo28")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.76405, 0, 3.29301)
+
+[node name="StoreRacks" parent="tools/store_racks2" index="0"]
+surface_material_override/0 = ExtResource("29_eo4xb")
+surface_material_override/1 = ExtResource("15_a33lk")
+surface_material_override/2 = ExtResource("30_572ya")
+
+[node name="tools" parent="tools" index="34" instance=ExtResource("31_u8kql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76391, 1.40863, -0.627718)
+
+[node name="tool_shelf" parent="tools" index="35" instance=ExtResource("32_phot8")]
+transform = Transform3D(0.976807, 0, 0.214122, 0, 1, 0, -0.214122, 0, 0.976807, 3.57991, 0.712474, -0.988539)
+
+[node name="ToolShelf" parent="tools/tool_shelf" index="0"]
+surface_material_override/1 = ExtResource("18_6eww5")
+surface_material_override/2 = ExtResource("18_6eww5")
+
+[node name="vice_grip" parent="tools" index="36" instance=ExtResource("33_ryv0s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.998, 0.804291, 0.00287285)
+
+[node name="ViceGrip" parent="tools/vice_grip" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+
+[node name="tire" parent="." index="11" instance=ExtResource("34_a6sgd")]
+transform = Transform3D(-1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0, 0.3, -3.45626, 0.0945387, 2.63769)
+
+[node name="Tire" parent="tire" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+surface_material_override/1 = ExtResource("18_6eww5")
+surface_material_override/2 = ExtResource("18_6eww5")
+surface_material_override/3 = ExtResource("22_nwx5h")
+
+[node name="tire2" parent="." index="12" instance=ExtResource("34_a6sgd")]
+transform = Transform3D(-1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0, 0.3, -3.43302, 0.0945387, -1.38934)
+
+[node name="Tire" parent="tire2" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+surface_material_override/1 = ExtResource("18_6eww5")
+surface_material_override/2 = ExtResource("18_6eww5")
+surface_material_override/3 = ExtResource("22_nwx5h")
+
+[node name="tire3" parent="." index="13" instance=ExtResource("34_a6sgd")]
+transform = Transform3D(-1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0, 0.3, -3.48008, 0.315938, -1.42747)
+
+[node name="Tire" parent="tire3" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+surface_material_override/1 = ExtResource("18_6eww5")
+surface_material_override/2 = ExtResource("18_6eww5")
+surface_material_override/3 = ExtResource("22_nwx5h")
+
+[node name="tire4" parent="." index="14" instance=ExtResource("34_a6sgd")]
+transform = Transform3D(0.084124, -0.266595, -0.108859, 0.199829, -0.0276142, 0.222049, -0.207344, -0.134776, 0.169834, -3.26316, 0.299976, -1.93892)
+
+[node name="Tire" parent="tire4" index="0"]
+surface_material_override/0 = ExtResource("18_6eww5")
+surface_material_override/1 = ExtResource("18_6eww5")
+surface_material_override/2 = ExtResource("18_6eww5")
+surface_material_override/3 = ExtResource("22_nwx5h")
+
+[node name="GodotNeon" parent="." index="15"]
+transform = Transform3D(1.40377e-08, -0.117756, -1.40377e-08, 0, 1.40377e-08, -0.117756, 0.117756, 1.40377e-08, 0, 3.71236, 1.40111, 0.661436)
+surface_material_override/0 = SubResource("StandardMaterial3D_osyps")
+surface_material_override/1 = SubResource("StandardMaterial3D_hxskk")
+
+[editable path="tools/bench"]
+[editable path="tools/engine"]
+[editable path="tools/gear"]
+[editable path="tools/socket_wrench"]
+[editable path="tools/store_racks"]
+[editable path="tools/store_racks2"]
+[editable path="tools/tool_shelf"]
+[editable path="tools/vice_grip"]
+[editable path="tire"]
+[editable path="tire2"]
+[editable path="tire3"]
+[editable path="tire4"]
