@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dksluun3p4u6e"]
+
+[ext_resource type="PackedScene" uid="uid://c5lnvica5o65w" path="res://assets/lamp.glb" id="1_hhc3h"]
+[ext_resource type="Material" uid="uid://cn0ta12p8fwu3" path="res://materials/dark_gray.material" id="2_4yhhp"]
+
+[node name="lamp" instance=ExtResource("1_hhc3h")]
+
+[node name="Lamp" parent="." index="0"]
+surface_material_override/1 = ExtResource("2_4yhhp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.165689, 0)
+light_color = Color(1, 0.941176, 0.807843, 1)
+light_energy = 3.0
+shadow_enabled = true
+shadow_blur = 2.0
