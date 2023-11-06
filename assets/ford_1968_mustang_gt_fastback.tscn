@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bmawwxwdleptq"]
+[gd_scene load_steps=40 format=3 uid="uid://bmawwxwdleptq"]
 
 [ext_resource type="PackedScene" uid="uid://bayr0hwgq8ksq" path="res://assets/Ford_1968_Mustang_GT_Fastback.glb" id="1_8ssxb"]
 [ext_resource type="Material" uid="uid://ck7abn18pjvss" path="res://materials/paint.material" id="2_2nsh5"]
@@ -102,6 +102,9 @@ roughness = 0.7
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku58n"]
 metallic = 0.2
 roughness = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_5on15"]
+size = Vector3(1.415, 0.13, 1.78)
 
 [node name="Ford_1968_Mustang_GT_Fastback" instance=ExtResource("1_8ssxb")]
 
@@ -492,21 +495,27 @@ layers = 2
 surface_material_override/0 = ExtResource("7_jiocg")
 surface_material_override/1 = ExtResource("18_iuixo")
 
-[node name="ReflectionProbe2" type="ReflectionProbe" parent="." index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505785, 0)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_5on15")
+surface_material_override/0 = ExtResource("7_jiocg")
+
+[node name="ReflectionProbe2" type="ReflectionProbe" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723639, 0.589067, 2.00419)
 layers = 2
 max_distance = 30.0
 size = Vector3(0.15, 0.15, 0.2927)
 interior = true
 
-[node name="ReflectionProbe3" type="ReflectionProbe" parent="." index="2"]
+[node name="ReflectionProbe3" type="ReflectionProbe" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.720203, 0.589067, 2.00419)
 layers = 2
 max_distance = 30.0
 size = Vector3(0.15, 0.15, 0.2927)
 interior = true
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="3"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925146, 0)
 max_distance = 50.0
 size = Vector3(5, 2, 5)
