@@ -205,7 +205,7 @@ _data = {
 "show": SubResource("Animation_2j61s")
 }
 
-[node name="Node3D" type="Node3D"]
+[node name="Showroom" type="Node3D"]
 script = ExtResource("1_vfo57")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

@@ -129,6 +129,7 @@ func _unhandled_input(event):
 			%Gui.modulate.a = 1
 			auto_hide_gui()
 	if event is InputEventMouseMotion:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		%Gui.modulate.a = 1
 		auto_hide_gui()
 
@@ -139,6 +140,12 @@ func auto_hide_gui():
 	_tween_gui = create_tween()
 	_tween_gui.tween_interval(2.5)
 	_tween_gui.tween_property(%Gui, "modulate:a", 0.0, 1.5)
+	_tween_gui.tween_callback(hide_mouse)
+
+
+func hide_mouse():
+	if not settings_visible:
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func apply_config():
@@ -353,3 +360,4 @@ func _on_settings_button_pressed():
 		return
 	var gui_settings = load("res://gui/settings.tscn").instantiate()
 	add_child(gui_settings)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
