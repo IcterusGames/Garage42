@@ -110,10 +110,8 @@ theme_override_styles/tab_disabled = SubResource("StyleBoxFlat_48iaq")
 theme_override_styles/tab_focus = SubResource("StyleBoxFlat_dy4y0")
 theme_override_styles/panel = SubResource("StyleBoxFlat_jj3qb")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_tul8s")
-current_tab = 2
 
 [node name="General" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="FPSCheck" type="CheckBox" parent="Window/VBoxContainer/TabContainer/General"]
@@ -342,6 +340,7 @@ layout_mode = 2
 text = "Use debanding"
 
 [node name="About" type="VBoxContainer" parent="Window/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Window/VBoxContainer/TabContainer/About"]
