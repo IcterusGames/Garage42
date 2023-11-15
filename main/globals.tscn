@@ -108,7 +108,10 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "T: Change debug draw modes
 P: Start/Stop autorotation
-Arrows: rotate camera"
+Arrows: rotate camera
+1-9: Camera
+L: Turn lights on/off
+Q, E: Turn blinkers"
 label_settings = SubResource("LabelSettings_aijfo")
 vertical_alignment = 2
 

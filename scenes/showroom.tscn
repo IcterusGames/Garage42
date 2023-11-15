@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmnl8op1jryvg"]
+[gd_scene load_steps=19 format=3 uid="uid://bmnl8op1jryvg"]
 
 [ext_resource type="PackedScene" uid="uid://bmawwxwdleptq" path="res://assets/ford_1968_mustang_gt_fastback.tscn" id="1_4gsv5"]
 [ext_resource type="Script" path="res://scenes/showroom.gd" id="1_vfo57"]
@@ -31,58 +31,6 @@ sdfgi_probe_bias = 0.1
 glow_enabled = true
 glow_bloom = 0.1
 volumetric_fog_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_h5e44"]
-size = Vector3(7, 1, 10)
-
-[sub_resource type="Gradient" id="Gradient_rf3mi"]
-colors = PackedColorArray(0.0313726, 0, 0.0117647, 1, 0.18359, 0.18359, 0.18359, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7t5a7"]
-noise_type = 5
-fractal_lacunarity = 4.465
-fractal_gain = 1.48
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8rvd7"]
-width = 1024
-height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_rf3mi")
-noise = SubResource("FastNoiseLite_7t5a7")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_dmaxb"]
-noise_type = 5
-frequency = 0.0835
-fractal_lacunarity = 4.195
-fractal_gain = 1.265
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xh5qc"]
-width = 2048
-height = 2048
-seamless = true
-as_normal_map = true
-noise = SubResource("FastNoiseLite_dmaxb")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5p5n"]
-albedo_texture = SubResource("NoiseTexture2D_8rvd7")
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_xh5qc")
-uv1_scale = Vector3(0.1, 0.1, 0.1)
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_k2047"]
-size = Vector3(0.2, 3, 10)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jyg32"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ms25e"]
-noise = SubResource("FastNoiseLite_jyg32")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jufbq"]
-albedo_texture = SubResource("NoiseTexture2D_ms25e")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_r2att"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_7nh1m"]
 density = 0.4
@@ -218,16 +166,107 @@ environment = SubResource("Environment_ykkwc")
 
 [node name="Ford_1968_Mustang_GT_Fastback" parent="." instance=ExtResource("1_4gsv5")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+[node name="FrontLights" type="Node3D" parent="Ford_1968_Mustang_GT_Fastback"]
+unique_name_in_owner = true
 visible = false
-mesh = SubResource("BoxMesh_h5e44")
-surface_material_override/0 = SubResource("StandardMaterial3D_k5p5n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05328, 1.9904, 0)
-mesh = SubResource("BoxMesh_k2047")
-surface_material_override/0 = SubResource("StandardMaterial3D_jufbq")
+[node name="LightLeft" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/FrontLights"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.736387, 0.574374, 1.93885)
+light_energy = 7.0
+light_volumetric_fog_energy = 10.0
+spot_angle = 35.0
+
+[node name="OmniLightLeft" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/FrontLights/LightLeft"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.159677)
+light_energy = 7.0
+light_volumetric_fog_energy = 0.0
+omni_range = 0.18
+omni_attenuation = 1.41421
+
+[node name="LightRight" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/FrontLights"]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.736, 0.574, 1.939)
+light_energy = 7.0
+light_volumetric_fog_energy = 10.0
+spot_angle = 35.0
+
+[node name="OmniLightRight" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/FrontLights/LightRight"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16)
+light_energy = 7.0
+light_volumetric_fog_energy = 0.0
+omni_range = 0.18
+omni_attenuation = 1.41421
+
+[node name="BlinkerLeft" type="Node3D" parent="Ford_1968_Mustang_GT_Fastback"]
+unique_name_in_owner = true
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerLeft"]
+transform = Transform3D(-0.168559, 0.39055, -0.905019, 0.0214261, 0.919391, 0.392761, 0.985459, 0.0468123, -0.163339, 0.792376, 0.355465, 1.84543)
+light_color = Color(1, 0.721569, 0, 1)
+light_specular = 0.0
+omni_range = 0.1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerLeft/OmniLight3D"]
+transform = Transform3D(1, -7.45058e-09, 0, 3.72529e-09, 1, 2.32831e-08, 0, -6.0536e-09, 1, 0, 0, 0)
+light_color = Color(1, 0.67451, 0, 1)
+light_energy = 2.0
+spot_range = 0.75
+spot_angle = 80.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerLeft"]
+transform = Transform3D(0.0675589, -0.00854515, -0.997679, -0.0118785, 0.999886, -0.00936843, 0.997645, 0.0124839, 0.0674497, 0.837716, 0.61756, -2.10746)
+light_color = Color(1, 0.721569, 0, 1)
+light_specular = 0.0
+omni_range = 0.0933235
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerLeft/OmniLight3D2"]
+transform = Transform3D(1, -7.45058e-09, 0, 3.72529e-09, 1, 2.32831e-08, 0, -6.0536e-09, 1, 0, 0, 0)
+light_color = Color(1, 0.67451, 0, 1)
+light_energy = 2.0
+spot_range = 0.75
+spot_angle = 80.0
+
+[node name="BlinkerLeftTimer" type="Timer" parent="Ford_1968_Mustang_GT_Fastback/BlinkerLeft"]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="BlinkerRight" type="Node3D" parent="Ford_1968_Mustang_GT_Fastback"]
+unique_name_in_owner = true
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerRight"]
+transform = Transform3D(0.168279, -0.390055, 0.905284, 0.0208683, 0.919585, 0.392337, -0.985519, -0.0471302, 0.162886, -0.792, 0.355, 1.845)
+light_color = Color(1, 0.721569, 0, 1)
+light_specular = 0.0
+omni_range = 0.1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerRight/OmniLight3D"]
+transform = Transform3D(1, -7.45058e-09, 0, 3.72529e-09, 1, 2.32831e-08, 0, -6.0536e-09, 1, 0, 0, 0)
+light_color = Color(1, 0.67451, 0, 1)
+light_energy = 2.0
+spot_range = 0.75
+spot_angle = 80.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerRight"]
+transform = Transform3D(-0.0681166, 0.00787473, 0.997646, -0.0122165, 0.999887, -0.00872654, -0.997603, -0.0127822, -0.0680127, -0.838, 0.618, -2.107)
+light_color = Color(1, 0.721569, 0, 1)
+light_specular = 0.0
+omni_range = 0.0933235
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Ford_1968_Mustang_GT_Fastback/BlinkerRight/OmniLight3D2"]
+transform = Transform3D(1, -7.45058e-09, 0, 3.72529e-09, 1, 2.32831e-08, 0, -6.0536e-09, 1, 0, 0, 0)
+light_color = Color(1, 0.67451, 0, 1)
+light_energy = 2.0
+spot_range = 0.75
+spot_angle = 80.0
+
+[node name="BlinkerRightTimer" type="Timer" parent="Ford_1968_Mustang_GT_Fastback/BlinkerRight"]
+unique_name_in_owner = true
+wait_time = 0.5
 
 [node name="CamAxisY" type="Node3D" parent="."]
 transform = Transform3D(0.777146, 0, 0.62932, 0, 1, 0, -0.62932, 0, 0.777146, 0, 0.694, 0)
@@ -238,11 +277,6 @@ transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 
 [node name="Camera3D" type="Camera3D" parent="CamAxisY/CamAxisX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.224)
 current = true
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25643, -0.627208)
-visible = false
-mesh = SubResource("BoxMesh_r2att")
 
 [node name="garage" parent="." instance=ExtResource("3_mf3sf")]
 
@@ -281,3 +315,6 @@ libraries = {
 "": SubResource("AnimationLibrary_g3h82")
 }
 autoplay = "show"
+
+[connection signal="timeout" from="Ford_1968_Mustang_GT_Fastback/BlinkerLeft/BlinkerLeftTimer" to="." method="_on_blinker_left_timer_timeout"]
+[connection signal="timeout" from="Ford_1968_Mustang_GT_Fastback/BlinkerRight/BlinkerRightTimer" to="." method="_on_blinker_right_timer_timeout"]

@@ -84,7 +84,6 @@ var config_glow := true :
 		update_config_info()
 
 var settings_visible := false
-var material_white_mode := false
 
 var _tween_gui : Tween = null
 var _current_debug_view := 0
@@ -129,27 +128,10 @@ func _unhandled_input(event):
 			%DebugViewLabel.text = display_debug[get_viewport().debug_draw]
 			%Gui.modulate.a = 1
 			auto_hide_gui()
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_R:
-			if material_white_mode:
-				apply_override_material(get_tree().current_scene, null)
-			else:
-				apply_override_material(get_tree().current_scene, load("res://materials/white.material"))
-			material_white_mode = not material_white_mode
 	if event is InputEventMouseMotion:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		%Gui.modulate.a = 1
 		auto_hide_gui()
-
-
-func apply_override_material(node : Node, material : Material):
-	#for prop in node.get_property_list():
-		#if prop.name == "material_override":
-			#prop.set("material_override", material)
-	for child in node.get_children():
-		apply_override_material(child, material)
-	#if node.get_property_list().has()
-	node.set("material_override", material)
 
 
 func auto_hide_gui():
