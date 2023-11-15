@@ -239,13 +239,6 @@ transform = Transform3D(1, 0, 0, 0, 0.982287, 0.187381, 0, -0.187381, 0.982287, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.224)
 current = true
 
-[node name="Node3D" type="Node3D" parent="."]
-visible = false
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(0.665799, -0.211226, 0.715608, 0.00245708, 0.959707, 0.280991, -0.746127, -0.185325, 0.639491, 2.02606, 1.34925, 2.31398)
-far = 250.0
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25643, -0.627208)
 visible = false

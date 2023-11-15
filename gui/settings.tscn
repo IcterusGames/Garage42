@@ -356,22 +356,8 @@ text = "[center][font size=23]Garage 42[/font]
 [font size=12]1.0.0[/font]
 A demo for Godot 4.2
 
-[font size=14]Produced By:[/font]
-[font size=18]Rafa Laguna (@rafalagoon)[/font]
-
-[font size=14]Created by:[/font]
+[font size=14]Created by[/font]
 [font size=18]IcterusGames[/font]
-[font size=14][url]https://icterusgames.itch.io[/url][/font]
-
-[font size=18]for TodoGodot[/font]
-[font size=11]Aprende a hacer juegos con Godot[/font]
-[table=3][cell][img=72]res://todogodot.png[/img][/cell][cell]   [/cell]
-[cell][p align=left][font size=13]Youtube: [url]https://youtube.com/@todogodot[/url]
-Twitter: [url]https://twitter.com/todogodotcom[/url]
-Discord: [url]https://discord.rafalagoon.com[/url]
-Telegram: [url]https://t.me/todogodot[/url][/font][/p][/cell]
-[/table]
-________
 
 [font size=14]Mustang GT Fastback model by:[/font]
 [font size=18]Adam T. Ryder[/font]
@@ -410,6 +396,39 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Close"
+
+[node name="Sound" type="GridContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_top = -0.5
+offset_right = 119.0
+offset_bottom = 55.5
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Sound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Sound"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
+
+[node name="Label2" type="Label" parent="Sound"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FX volume"
+
+[node name="FXVolumeSlider" type="HSlider" parent="Sound"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 50.0
 
 [connection signal="close_requested" from="Window" to="." method="_on_close_button_pressed"]
 [connection signal="toggled" from="Window/VBoxContainer/TabContainer/General/FPSCheck" to="." method="_on_fps_check_toggled"]
