@@ -9,11 +9,11 @@ Godot 4.2 Benchmark/Demo - FSR 2.2
 
 You can download the Linux, Windows and Mac builds on Itch:
 
-(https://todogodot.itch.io/garage42)[https://todogodot.itch.io/garage42]
+[https://todogodot.itch.io/garage42](https://todogodot.itch.io/garage42)
 
 
 <p><strong>Español:</strong></p>
 
 <p name="spanish">Godot 42 es una pequeña demo/benchmark que os permitirá probar el rendimiento de vuestro PC y probar el funcionamiento de las nuevas optimizaciones de Godot 4.2 que utilizan la tecnología Open Source FidelityFX&trade; Super Resolution 2.2 (FSR 2.2) de AMD.</p>
 
-(https://todogodot.itch.io/garage42)[https://todogodot.itch.io/garage42]
+[https://todogodot.itch.io/garage42](https://todogodot.itch.io/garage42)
