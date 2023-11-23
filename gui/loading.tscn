@@ -1,9 +1,341 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2y5gv3whdt7b"]
+[gd_scene load_steps=20 format=3 uid="uid://b2y5gv3whdt7b"]
 
 [ext_resource type="Script" path="res://gui/loading.gd" id="1_vghc5"]
+[ext_resource type="Shader" path="res://gui/loading.gdshader" id="2_db0e1"]
+[ext_resource type="Texture2D" uid="uid://d3wv3gpfntaox" path="res://assets/textures/brick_4_diff_2k.jpg" id="2_h1s2y"]
+[ext_resource type="Texture2D" uid="uid://creajcvbion7e" path="res://assets/textures/brick_4_nor_gl_2k.png" id="3_jo0co"]
+[ext_resource type="Texture2D" uid="uid://cnem2h4te5kir" path="res://assets/images/godot_neon_blue_light.png" id="4_r2a3a"]
+[ext_resource type="Texture2D" uid="uid://dimj21431rk03" path="res://assets/images/godot_neon_white_mask.png" id="4_xhyxd"]
+[ext_resource type="Texture2D" uid="uid://b4fg58atm4jlk" path="res://assets/images/godot_neon_white_light.png" id="5_33mh5"]
+[ext_resource type="Texture2D" uid="uid://dwho8c4xfgr13" path="res://assets/images/godot_neon_shadow.png" id="5_gx2s1"]
+[ext_resource type="Texture2D" uid="uid://cprubvipwemqr" path="res://assets/images/godot_neon_blue_mask.png" id="5_mee52"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1a5cw"]
-font_size = 32
+[sub_resource type="Environment" id="Environment_eokg7"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hv0p6"]
+shader = ExtResource("2_db0e1")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7kldy"]
+diffuse_texture = ExtResource("2_h1s2y")
+normal_texture = ExtResource("3_jo0co")
+
+[sub_resource type="Gradient" id="Gradient_1001a"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_slkdr"]
+gradient = SubResource("Gradient_1001a")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_qjqsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.721569, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.384314, 0.384314, 0.384314, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect2/PointLight2D2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11.06]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../VBoxContainer/Label2:label_settings:font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ruiq1"]
+resource_name = "change_scene"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.721569, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.384314, 0.384314, 0.384314, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect2/PointLight2D2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [11.06, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../VBoxContainer/Label2:label_settings:font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_24gq5"]
+resource_name = "load_scene"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0.721569, 1, 0.192157), Color(0, 0.721569, 1, 1), Color(0, 0.721569, 1, 0.192157), Color(0, 0.721569, 1, 1), Color(0, 0.721569, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.152941, 0.152941, 0.152941, 1), Color(0.384314, 0.384314, 0.384314, 1), Color(0.152941, 0.152941, 0.152941, 1), Color(0.384314, 0.384314, 0.384314, 1), Color(0.384314, 0.384314, 0.384314, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect2/PointLight2D2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 11.06, 0.0, 11.06, 11.06]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect/PointLight2D:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.0, 1.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextureRect:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.8, 0.9, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.54902, 0.54902, 0.54902, 1), Color(1, 1, 1, 1), Color(0.54902, 0.54902, 0.54902, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../VBoxContainer/Label2:label_settings:font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TextureRect4:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0osm"]
+_data = {
+"RESET": SubResource("Animation_qjqsk"),
+"change_scene": SubResource("Animation_ruiq1"),
+"load_scene": SubResource("Animation_24gq5")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_cl2qx"]
+font_size = 42
+shadow_color = Color(0, 0, 0, 0.729412)
+shadow_offset = Vector2(0, 5)
 
 [node name="Loading" type="Control"]
 layout_mode = 3
@@ -14,30 +346,100 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vghc5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eokg7")
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.384314, 0.384314, 0.384314, 1)
+light_mask = 3
+material = SubResource("ShaderMaterial_hv0p6")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Loading..."
-label_settings = SubResource("LabelSettings_1a5cw")
+texture = SubResource("CanvasTexture_7kldy")
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="CenterContainer"]
+height = 0.23
+
+[node name="TextureRect4" type="TextureRect" parent="CenterContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+texture = ExtResource("5_gx2s1")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+light_mask = 4
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+texture = ExtResource("4_xhyxd")
+expand_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="CenterContainer/TextureRect"]
+range_item_cull_mask = 4
+texture = ExtResource("5_33mh5")
+offset = Vector2(192, 192)
+texture_scale = 0.75
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer"]
+self_modulate = Color(0, 0.721569, 1, 1)
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+texture = ExtResource("5_mee52")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PointLight2D" type="PointLight2D" parent="CenterContainer/TextureRect2"]
+color = Color(0, 0.654902, 1, 1)
+energy = 4.0
+texture = ExtResource("4_r2a3a")
+offset = Vector2(192, 192)
+texture_scale = 0.75
+
+[node name="PointLight2D2" type="PointLight2D" parent="CenterContainer/TextureRect2"]
+color = Color(0, 0.741176, 1, 1)
+energy = 11.06
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_slkdr")
+offset = Vector2(192, 192)
+texture_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_p0osm")
+}
+autoplay = "load_scene"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+text = "Loading"
+label_settings = SubResource("LabelSettings_cl2qx")
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="CenterContainer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

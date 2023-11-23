@@ -35,3 +35,4 @@ environment/ssil/quality=3
 environment/ssil/half_size=false
 environment/screen_space_reflection/roughness_quality=3
 global_illumination/sdfgi/probe_ray_count=3
+viewport/hdr_2d=true

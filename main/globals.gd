@@ -110,6 +110,7 @@ func _ready():
 		_:
 			%SysInfoLabel.text += "\nVideo adapter type: Unknown"
 	%SysInfoLabel.text += "\nApi version: " + RenderingServer.get_video_adapter_api_version()
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 func _process(_delta):
@@ -128,6 +129,8 @@ func _unhandled_input(event):
 			%DebugViewLabel.text = display_debug[get_viewport().debug_draw]
 			%Gui.modulate.a = 1
 			auto_hide_gui()
+		if event.pressed and event.keycode == KEY_M:
+			AudioServer.set_bus_mute(0, not AudioServer.is_bus_mute(0))
 	if event is InputEventMouseMotion:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		%Gui.modulate.a = 1
