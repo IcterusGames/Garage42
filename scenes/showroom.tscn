@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmnl8op1jryvg"]
+[gd_scene load_steps=20 format=3 uid="uid://bmnl8op1jryvg"]
 
 [ext_resource type="PackedScene" uid="uid://bmawwxwdleptq" path="res://assets/ford_1968_mustang_gt_fastback.tscn" id="1_4gsv5"]
 [ext_resource type="Script" path="res://scenes/showroom.gd" id="1_vfo57"]
 [ext_resource type="PackedScene" uid="uid://cfpw12aplsy5k" path="res://assets/garage.tscn" id="3_mf3sf"]
 [ext_resource type="LightmapGIData" uid="uid://b5qgu5wdl5ji7" path="res://scenes/showroom.lmbake" id="4_f528f"]
+[ext_resource type="AudioStream" uid="uid://bbvguc81uihhe" path="res://sounds/music/Funked Up.ogg" id="5_2v1tf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_63yby"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -315,6 +316,11 @@ libraries = {
 "": SubResource("AnimationLibrary_g3h82")
 }
 autoplay = "show"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2v1tf")
+volume_db = -16.0
+autoplay = true
 
 [connection signal="timeout" from="Ford_1968_Mustang_GT_Fastback/BlinkerLeft/BlinkerLeftTimer" to="." method="_on_blinker_left_timer_timeout"]
 [connection signal="timeout" from="Ford_1968_Mustang_GT_Fastback/BlinkerRight/BlinkerRightTimer" to="." method="_on_blinker_right_timer_timeout"]
